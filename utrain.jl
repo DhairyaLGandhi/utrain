@@ -139,6 +139,7 @@ callback!(app, Output("imgpathdiv", "children"), Input("imgpath", "value")) do i
   
   img = FileIO.load(img_path)
   img = Images.imresize(img, 28,28)
+  img = Gray.(img)
   img = reshape(channelview(img), size(img)..., 1, 1)
 
   # Note that since this is just a regular julia function at the same time, we can use all the
